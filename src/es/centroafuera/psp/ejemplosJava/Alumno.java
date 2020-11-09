@@ -17,9 +17,11 @@ public class Alumno extends Thread {
             } else {
                 sleepingTime = r.nextInt(20000) + 5000;
             }
+
             sleep(sleepingTime);
             System.out.println(getName() + " ha llegado a clase");
             System.out.println(getName() + " espera a ser desinfectado");
+
             synchronized (Principal.alumnos){
                 Principal.alumnos.add(this);
                 Principal.alumnos.wait();
